@@ -15115,14 +15115,14 @@ Therefore, we define a testsequence consisting of a list of ingredients from the
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Generate recipes based on ingredients list and add them to a string</span>
 <span class="n">AllRecipes</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">sequence</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;Instructions&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; </span><span class="se">\n</span><span class="s2"> Instructions:&quot;</span>
-    <span class="n">encoded</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">testsequence</span><span class="p">,</span> <span class="n">add_special_tokens</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">add_special_tokens</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                            <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
 
     <span class="n">modelgenerated</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">input_ids</span> <span class="o">=</span> <span class="n">encoded</span><span class="p">,</span> <span class="n">max_length</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span>
@@ -15180,7 +15180,7 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Defining a function to save generated recipes as .txt files:</span>
@@ -15198,7 +15198,7 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">save</span><span class="p">(</span><span class="n">AllRecipes</span><span class="p">,</span> <span class="s1">&#39;Recipes/AllRecipes.txt&#39;</span><span class="p">)</span>
@@ -15209,10 +15209,22 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>And that's it! We have now trained a custom NLP model that can generate recipes based on a list of ingredients. The next time thre's food in your fridge but you don't know what to eat, just ask the model!</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Contributors: Emilia, Sergio, Tim</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">AllRecipes</span><span class="p">)</span>
@@ -15237,155 +15249,140 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre> 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 4 boneless chicken breasts (7 ounces each) 
+ Salt and pepper 
+ 12 ounces sauteed spinach 
+ 1 red pepper, roasted, peeled and quartered 
+ 12 ounces goat cheese 
+ 8 ounces Parmesan 
+ 4 teaspoons chopped Italian parsley 
+ 6 ounces flour 
+ 2 eggs 
+ 1/2 cup milk 
+ Bread crumbs 
+ 4 ounces Romano 
+ 2 teaspoons granulated garlic 
+ 6 ounces olive oil 
   
  Instructions: 
- Preheat oven to 400 degrees F (175 degrees C). Stir oil, oil, onion, carrot, and thyme together in a saucepan; add soup. In a saucepan heat oil in a large skillet over medium heat. Add onion and cook until onions are no longer pink and carrots are golden, about 1 minute. Stir potatoes and carrots, and cook until onions are tender tender, about 30 minutes. Add 1/2 cup water, and bring to a boil. Let boil for 10 minutes, then turn off heat, and cool again. Pour broth over the vegetables and cook for 8 minutes, then pour over the vegetables and cook 10 minutes. Stir broth over the vegetables and cook for 8 minutes.  &lt;|endoftext|&gt; 
+ Make 1. Stir together chicken and saute. In a large bowl, beat together the bread crumbs and milk. Mix in the flour and egg mixture. In a large bowl, whisk together the Parmesan. Bring to a boil and cook for 30 minutes, or until just beginning to soften.  &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ One 2-pound bag frozen potato nuggets, such as Tater Tots 
+ 3 cups shredded Cheddar 
+ 8 ounces cooked chorizo, crumbled 
+ 1 cup salsa 
+ 1/2 cup sliced pickled jalapenos 
+ 1/2 cup sour cream, thinned with a few tablespoons of water 
+ 1/4 cup diced red onion 
+ Coarsely chopped fresh cilantro, for sprinkling 
   
  Instructions: 
- Heat oil in a large skillet over medium heat. Cook onion, cabbage, carrots, garlic, onion, and tomatoes in hot oil until tender, about 5 minutes. Add peas; toss to coat. Add tomato paste and peas; cook, stirring often, until onions are tender and vegetables are just beginning to brown, about 3 to 4 minutes. Add beans; stir occasionally, adding more oil if necessary, until beans are tender, at least 2 minutes per side. Add carrots; cook, stirring occasionally, until beans are cooked through and potatoes are just beginning to brown, about 2 minutes. Pour salsa into hot oil. Bring to a boil; cook, stirring often, until tomatoes are cooked through. Add beans; stir occasionally, until sauce has run clear, about 15 minutes. Add carrots; cook, stirring occasionally, until beans are tender and vegetables are just beginning to brown, about 5 minutes. Add tomatoes; stir occasionally in water until sauce is dissolved and beans are just beginning to brown. Drain beans with cold water. &lt;|endoftext|&gt; 
+ Melt the potato nuggets in a large saucepan over medium heat, whisking occasionally to coat. Add the potatoes. Stir together the chorizo, sour cream, red onion and pickled jalapenos. Bring the mixture to a boil. Drain the potato and season the skillet with salt and pepper. Bring to a boil. Cover the skillet with plastic wrap and preheat to 350 degrees F. Sprinkle the remaining 2 1/2 cups shredded Cheddar over the potatoes, chorizo, and pickled jalapenos on top. Cover the skillet with plastic wrap and preheat to 350 degrees F. Sprinkle the remaining 2 1/2 cups shredded Cheddar over the potato, chorizo, and pickled jalapenos. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 1 small bunch of kale, stems removed, cut or torn into small pieces 
+ 1/4 cup pecans, toasted and chopped 
+ 1 green onion, chopped 
+ 1 pear, peeled and sliced 
+ Kosher salt and freshly ground black pepper 
+ 2 tablespoons balsamic vinegar 
+ 3 tablespoons extra-virgin olive oil 
+ Crumbled blue cheese, for garnish 
   
  Instructions: 
- Preheat oven to 350 degrees F (175 degrees C). Place onion in a blender and mix in water until smooth, about 3 minutes. Stir together onions, carrots, garlic, and thyme. Add water. Beat the rice and vinegar in the same manner. Mix in tomatoes. Bring the water to a boil; let sit at least 4 hours. Cover. Cook for 8 to 10 minutes. Preheat oven to 350 degrees F (175 degrees C). Place onion in a blender and mix in water until smooth, about 3 minutes. Stir together onion, carrots, garlic, and thyme. Add water. Beat the rice and vinegar in the same manner. Mix in tomatoes. Bring the water to a simmer; let sit at least 4 hours. Cover. Cook for 8 to 10 minutes. &lt;|endoftext|&gt; 
+ In a small bowl, cream together the kale. Heat the oil in a large skillet over medium heat; cook the kale in the oil. Pour the oil over the potatoes until they brown. Remove from oil and set aside. In a large bowl, whisk together the carrots, and peas. Season with salt, pepper, and black pepper. Add all the vegetables and mix well. Mix well. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 2 tablespoons molasses 
+ 12 jalapenos 
+ 1/4 cup shredded mozzarella 
+ 1/3 cup cream cheese, room temperature 
+ 1/4 cup ricotta 
+ 3 tablespoons chopped shallots 
+ 1/3 cup diced cooked bacon 
+ 12 slices prosciutto 
+ 1 1/4 cups granulated sugar 
+ 1 cup cabernet sauvignon (recommended: Guardian Cellars) 
+ 1 (12-ounce) bag cranberries 
+ 1 tangerine, zested 
+ 1 whole cinnamon stick 
   
  Instructions: 
- Preheat oven to 350 degrees F (175 degrees C). Mix the oil, cooking oil and onion in a skillet over medium-high heat until just starting to brown and the onion is soft, 20 to 25 minutes. Add the vegetables and cook for 10 minutes or until vegetables are tender and just beginning to brown again. In a medium bowl, mix together the tomatoes, carrots, and thyme. Add a pinch of salt and whisk in the tomato paste. Pour the beans evenly in the soup. Stir in the vegetables and cook for 10 minutes or until vegetables are tender, about 5 minutes. Remove to a towel to cool. Serve. Bring to a boil. Reduce heat to low, cover pot, and simmer until the soup is just beginning to brown and the tomatoes are tender, about 25 minutes. Remove from heat to low. Heat the oil in a skillet over medium-high heat until just starting to brown and the onion is soft, 20 to 25 minutes. Add the vegetables and cook for 10 minutes or until vegetables are tender and just beginning to brown again. In a medium bowl, mix together the tomatoes, carrots, and thyme. Add a pinch of salt and whisk in the tomato paste. Pour the beans evenly in the soup. Stir in the vegetables and cook for 10 minutes or until vegetables are tender and just beginning to brown again. In a medium bowl, mix together the tomatoes, carrots, and thyme. Add a pinch of salt and whisk in the tomato paste. Pour the beans evenly in the soup. Stir in the vegetables and cook for 10 minutes or until vegetables are tender and just beginning to brown again. &lt;|endoftext|&gt; 
+ Fill a 9x13-inch baking dish with the molasses and jalapenos, then stir in the cream cheese, cranberries, and cream cheese. Bake in the preheated oven 30 minutes, covered and covered for a few hours. Serve at room temperature or as a sandwich. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 1 cup unsalted roasted peanuts 
+ 1 cup chopped pecans 
+ 4 tablespoons shredded coconut (either fresh or the unsweetened desiccated kind) 
+ 2 tablespoons vegetable oil 
+ 1 tablespoon ground coriander 
+ 1 tablespoon ground cumin 
+ 2 teaspoons garam masala, store-bought or homemade, recipe follows 
+ 2 teaspoons kosher salt 
+ 1/4 cup green cardamom pods, shelled, husks discarded (about 2 tablespoons of seeds) 
+ 3 tablespoons whole cloves 
+ 4 large black cardamom pods, shelled, husks discarded (about 1 tablespoon of seeds), optional 
+ 3 large cinnamon sticks (if you have the kind you get at Indian stores, it&#39;s about 3 tablespoons of cinnamon bark bits) 
   
  Instructions: 
- Preheat oven to 350 degrees F (175 degrees C). Peel onions. Peel onions. Peel onion, carrots, and tomatoes. Sprinkle with thyme. Add beans. Cover with plastic wrap. In a large bowl, combine oil, onions, carrots, and thyme. Whisk in tomatoes, peas, and yolks. Cook over high heat, stirring frequently, until tomatoes are crisp. Whisk together rice mixture, corn syrup, and 1/2 teaspoon garlic powder. Pour batter into a large bowl in a blender. Pour mixture into a large bowl. Add tomatoes, carrots, and tomatoes. Mix well. Bake in the preheated oven for 20 minutes, or until beans are golden. &lt;|endoftext|&gt; 
+ Preheat oven to 350 degrees F (200 degrees C) and line baking sheet with parchment paper. Arrange the roasted peanuts in 1&#34; baking dish; spread them evenly into baking sheets. In a large bowl, beat in cinnamon sticks. Whisk together the peanuts, cinnamon sticks, green cardamom pods, coriander, cinnamon stick, and cinnamon stick and beat in a separate bowl until combined. In a separate bowl, stir in garlic and ginger, 1/2 cup each mixture. Divide the mixture between the prepared baking dish and the prepared baking dish. In a saucepan, bring to a boil, reduce heat to medium-low, and simmer for 20 minutes. Remove from heat and cover the oven. Preheat oven to 350 degrees F (200 degrees C) and line baking sheet with parchment paper. Arrange the roasted peanuts in 1&#34; baking dish; spread them evenly into baking sheets. In a separate bowl, beat in cinnamon sticks. Whisk together the peanuts, cinnamon sticks, green cardamom pods, coriander, cinnamon stick, and cinnamon stick and beat in a separate bowl until combined. In a separate bowl, stir in garlic and ginger, 1/8 teaspoon each mixture. Divide the mixture between the prepared baking dish and the prepared baking dish. In a saucepan, bring to a boil, reduce heat to medium-low, and simmer for 20 minutes. Remove from heat and cover the oven. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 3/4 cup coarse dry bread crumbs (preferably from a crusty loaf of Italian bread) 
+ 1 large garlic clove, minced 
+ 2 tablespoons minced drained bottled roasted peppers 
+ 2 tablespoons extra-virgin olive oil 
+ 1 tablespoon minced fresh oregano leaves or 3/4 teaspoon dried oregano, crumbled 
+ 24 small hard-shelled clams such as littlenecks, shucked, reserving 24 half shells 
+ Coarse sea or kosher salt for filling baking pan and serving platter. 
   
  Instructions: 
- Preheat oven to 350°F. Grease a 9x13-inch baking dish. Using a slotted spatula, mix all ingredients together in 2 tablespoons oil. Place onion in a food processor, stir into the onions and bell peppers, and toss to coat and set aside. In a large, well-stored saucepan, bring to a boil and simmer. Add garlic, thyme, beans, 1/2 cup oil, 1/2 cup water, and 1/2 teaspoon salt. Add broth to saucepan and cook, stirring occasionally, until vegetables are tender, about 5 minutes. Stir in carrots and thyme. Remove from heat and let cool. Place in a serving dish or serving dish. &lt;|endoftext|&gt; 
+ Mix bread crumbs and butter together in a small bowl. Mix bread crumbs and butter together in a small bowl. Place bread crumbs and butter together in a small bowl. Place bread crumbs and butter together in a small bowl. Place bread crumbs and butter together in a small bowl. Place bread crumbs and butter together in a small bowl. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 1 box vanilla cake mix 
+ 1 small box vanilla pudding mix 
+ 1 cup buttermilk 
+ 1/2 cup vegetable oil 
+ 3 eggs 
+ Zest of 1 lemon 
+ Juice of 1/2 lemon 
+ Juice of 1/2 lime 
+ 2 cups powdered sugar 
+ 1 stick unsalted butter 
+ 1/4 cup buttermilk 
+ Zest of 1 lemon 
+ Zest of 1 lime 
+ Juice of 1/2 lemon 
   
  Instructions: 
- Preheat oven to 350 degrees F (175 degrees C). Grease 12x9 inch baking dish and line baking dish with aluminum foil. Preheat oven to 350 degrees F (175 degrees C). Grease 12x9 inch baking dish and line baking dish with aluminum foil. Preheat oven to 350 degrees F (175 degrees C). Grease 12x9 inch baking dish and line baking dish with aluminum foil. &lt;|endoftext|&gt; 
+ Preheat oven to 350 degrees F (175 degrees C). Line a baking sheet with parchment paper. Line a baking sheet with parchment paper and place the dough on a baking sheet. Bake for 8 to 9 minutes, then roll out the dough onto a floured surface. Remove from oven and cool completely. Place the cake mix on a lightly floured cookie sheet. Bake until golden brown, about 15 minutes. Cool completely. Place the cake mixture on a lightly floured cookie sheet. Cool slightly. Place a layer on the center of the cake mixture, about 4 inches from the edges of the cake. Place each layer on the surface of the cake mixture. Repeat layer on the other side of the cake mixture. Bake until cake is lightly browned on both sides, about 25 minutes. Cool completely before serving.  &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 6 hard boiled eggs 
+ 1 stalk celery, finely diced 
+ 1/2 red bell pepper, seeded and finely diced 
+ 1 heaping teaspoon Dijon mustard 
+ 1/4 cup mayonnaise 
+ 2 cloves roasted garlic 
+ 2 teaspoons curry powder 
+ Salt and pepper, to taste 
+ 1 ciabatta, sliced in thirds and halved 
   
  Instructions: 
- Heat a deep-fryer in a heavy skillet over medium heat. Cook onion, carrot, carrots, carrots, carrots, carrots, carrots, tomato paste, and thyme. Cook and stir until onions are soft, about 5 minutes. Add broth to skillet over medium heat, then pour broth over onions. Cook, stirring often, until vegetables are soft enough to hold together, 2 to 3 minutes. Add beans. Add water, and cook until beans are soft enough to hold together, 1 to 2 minutes. Add rice. Add broth. Bring to simmer, about 1 minute. Add flour, and stir until mixture is smooth and mixture thick. Pour beans into skillet. Cook, stirring constantly, until mixture is thick enough to hold together, 2 to 3 minutes, or until liquid is evaporated. Stir in water. Remove from heat. Season with salt. Transfer beans to bowls. Cook, stirring constantly, until rice is tender and liquid is absorbed. Stir in rice mixture. Add water, and cook until rice is firm, about 2 minutes. Pour beans into bowls. Serve warm. &lt;|endoftext|&gt; 
+ Preheat oven to 350 degrees F (175 degrees C). Lightly grease a 9x13 inch baking dish. Grease with a toothpick. Bake in the preheated oven until golden brown and bubbly, about 30 minutes. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 3 large eggs 
+ 4 tablespoons unsalted butter 
+ Pinch kosher salt 
+ Fresh chives, for garnish 
+ Extra-virgin olive oil, for drizzling 
+ Serving suggestion: Serve with roasted tomatoes and peasant bread. 
   
  Instructions: 
- Preheat oven to 450 degrees F (220 degrees C). Line a 10 x 13 x 2-inch baking dish with parchment-lined baking sheet. Roll out each chicken mixture into 3/4 cup oil. In a large bowl, beat together the onions, carrots, and thyme. In a large bowl, beat together the peas, 1 cup water, rice, beans, and thyme. Mix well. Bake in preheated oven, 35 minutes. &lt;|endoftext|&gt; 
+ Preheat oven to 350°F. Grease a 9x4&#34; glass baking dish with parchment paper. Whisk together butter and butter in a mixing bowl. Stir together eggs, chives, and pinch kosher salt in a small bowl. Stir together chives, chives, and pinch kosher salt in a small bowl. Stir together chives, and pinch kosher salt in a small bowl. &lt;|endoftext|&gt; 
  Ingredients: 
- 1/4 cup oil 
- 6 medium onions, chopped 
- 4 bell peppers, chopped 
- 3 carrots, chopped 
- 1 cup string beans, broken into pieces 
- 3/4 cup peas 
- 6 tomatoes, chopped 
- 1/2 teaspoon black pepper 
- 1 teaspoon dried thyme 
- 4 cups medium grain brown rice, cooked (cold) 
- 1/2 cup tomato paste 
+ 1 tablespoon coconut oil 
+ 12 ounces small string beans, stems removed and beans cut in half 
+ Kosher salt and coarsely ground black pepper 
+ 3 tablespoons mango chutney 
   
  Instructions: 
- Heat oil in a large mixing bowl and cook garlic; saute for 30 minutes, or until onions are tender. Add tomatoes, carrots, and thyme; stir until evenly combined. Season with salt and pepper. Transfer beans mixture to bowls; bring to a boil. Remove from heat and stir in parsley; cook for another 10 minutes. Stir in bread flour; sprinkle.  &lt;|endoftext|&gt;
+ Preheat oven to 350 degrees F (175 degrees C). Grease a 9x9x13 inch baking dish. Place bean in a 9x8 inch baking dish. Spread beans evenly on top of each bean. Bake until beans have softened, about 20 minutes to overnight. Cool. Combine all ingredients in the prepared baking dish. Pour beans evenly over and serve.  &lt;|endoftext|&gt;
 </pre>
 </div>
 </div>
@@ -15394,18 +15391,6 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>And that's it! We have now trained a custom NLP model that can generate recipes based on a list of ingredients. The next time thre's food in your fridge but you don't know what to eat, just ask the model!</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Contributors: Emilia, Sergio, Tim</p>
-
-</div>
 </div>
 </body>
 
